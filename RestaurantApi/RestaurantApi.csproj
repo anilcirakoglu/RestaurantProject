@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -15,12 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="DAL\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Restaurant.BusinessLayer\Restaurant.BusinessLayer.csproj" />
+    <ProjectReference Include="..\Restaurant.DtoLayer\Restaurant.DtoLayer.csproj" />
   </ItemGroup>
 
 </Project>

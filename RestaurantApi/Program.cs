@@ -1,6 +1,16 @@
+using Restaurant.BusinessLayer.Abstract;
+using Restaurant.BusinessLayer.Concrete;
+using Restaurant.BusinessLayer.Container;
+using Restaurant.DataAccessLayer.Abstract;
+using Restaurant.DataAccessLayer.Concrete;
+using Restaurant.DataAccessLayer.EntityFramework;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddDbContext<RestaurantContext>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.ContainerDependencies();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
