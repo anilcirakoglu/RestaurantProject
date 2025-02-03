@@ -32,14 +32,14 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<SocialMedia>(createSocialMediaDto);
             _socialMediaService.TAdd(value);
-            return Ok(value);
+            return Ok("Sosyal Medya Bilgisi Eklendi");
         }
         [HttpDelete]
         public IActionResult DeleteSocialMedia(int id)
         {
             var value = _socialMediaService.TGetByID(id);
             _socialMediaService.TDelete(value);
-            return Ok(value);
+            return Ok("Sosyal Medya Bilgisi Silindi");
         }
 
         [HttpPut]
@@ -47,7 +47,7 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<SocialMedia>(updateSocialMediaDto);
             _socialMediaService.TUpdate(value);
-            return Ok(value);
+            return Ok("Sosyal Medya Bilgisi Güncellendi");
         }
         [HttpGet("GetSocialMedia")]
         public IActionResult GetSocialMedia(int id)

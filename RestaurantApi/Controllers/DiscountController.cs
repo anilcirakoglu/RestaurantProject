@@ -32,14 +32,14 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<Discount>(createDiscountDto);
             _discountService.TAdd(value);
-            return Ok(value);
+            return Ok("İndirim Bilgisi Eklendi");
         }
         [HttpDelete]
         public IActionResult DeleteDiscount(int id)
         {
             var value = _discountService.TGetByID(id);
             _discountService.TDelete(value);
-            return Ok(value);
+            return Ok("İndirim Bilgisi Silindi");
         }
 
         [HttpPut]
@@ -47,7 +47,7 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<Discount>(updateDiscountDto);
             _discountService.TUpdate(value);
-            return Ok(value);
+            return Ok("İndirim Bilgisi Güncellendi");
         }
         [HttpGet("GetDiscount")]
         public IActionResult GetDiscount(int id)

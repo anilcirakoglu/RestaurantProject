@@ -31,14 +31,14 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<Testimonial>(createTestimonialDto);
             _testimonialService.TAdd(value);
-            return Ok(value);
+            return Ok("Müşteri Yorum Bilgisi Eklendi");
         }
         [HttpDelete]
         public IActionResult DeleteTestimonial(int id)
         {
             var value = _testimonialService.TGetByID(id);
             _testimonialService.TDelete(value);
-            return Ok(value);
+            return Ok("Müşteri Yorum Bilgisi Silindi");
         }
 
         [HttpPut]
@@ -46,7 +46,7 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<Testimonial>(updateTestimonialDto);
             _testimonialService.TUpdate(value);
-            return Ok(value);
+            return Ok("Müşteri Yorum Bilgisi Güncellendi");
         }
         [HttpGet("GetTestimonial")]
         public IActionResult GetTestimonial(int id)

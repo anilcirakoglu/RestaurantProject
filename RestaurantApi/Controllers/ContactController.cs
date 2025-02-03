@@ -30,14 +30,14 @@ namespace RestaurantApi.Controllers
         {
             var value =_mapper.Map<Contact>(createContactDto);
             _contactService.TAdd(value);
-            return Ok(value);
+            return Ok("İletişim Bilgisi Eklendi");
         }
         [HttpDelete]
         public IActionResult DeleteContact(int id) 
         {
             var value = _contactService.TGetByID(id);
             _contactService.TDelete(value);
-            return Ok(value);
+            return Ok("İletişim Bilgisi Silindi");
         }
         
         [HttpPut]
@@ -45,7 +45,7 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<Contact>(updateContactDto);
             _contactService.TUpdate(value);
-            return Ok(value);
+            return Ok("İletişim Bilgisi Güncellendi");
         }
         [HttpGet("GetContact")]
         public IActionResult GetContact(int id)

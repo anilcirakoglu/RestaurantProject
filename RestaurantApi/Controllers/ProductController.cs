@@ -31,14 +31,14 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<Product>(createProductDto);
             _productService.TAdd(value);
-            return Ok(value);
+            return Ok("Ürün Bilgisi Eklendi");
         }
         [HttpDelete]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetByID(id);
             _productService.TDelete(value);
-            return Ok(value);
+            return Ok("Ürün Bilgisi Silindi");
         }
 
         [HttpPut]
@@ -46,7 +46,7 @@ namespace RestaurantApi.Controllers
         {
             var value = _mapper.Map<Product>(updateProductDto);
             _productService.TUpdate(value);
-            return Ok(value);
+            return Ok("Ürün Bilgisi Güncellendi");
         }
         [HttpGet("GetProduct")]
         public IActionResult GetProduct(int id)
