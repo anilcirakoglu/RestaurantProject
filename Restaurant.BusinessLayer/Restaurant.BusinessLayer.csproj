@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Restaurant.DataAccessLayer\Restaurant.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Restaurant.DtoLayer\Restaurant.DtoLayer.csproj" />
   </ItemGroup>
 
 </Project>

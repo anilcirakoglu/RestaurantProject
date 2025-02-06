@@ -1,4 +1,5 @@
-﻿using Restaurant.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using Restaurant.DataAccessLayer.Abstract;
 using Restaurant.DataAccessLayer.Concrete;
 using Restaurant.DataAccessLayer.Repositories;
 using Restaurant.EntityLayer.Entities;
@@ -15,5 +16,27 @@ namespace Restaurant.DataAccessLayer.EntityFramework
         public EfProductDal(RestaurantContext context) : base(context)
         {
         }
+
+        public List<Product> GetProductWithCategories()
+        {
+            var context = new RestaurantContext();
+            //var values = (from p in context.Products
+            //              join c in context.Categories
+            //              on p.CategoryID equals c.CategoryID
+            //              select new ResultProductWithCategory
+            //              {
+            //                  ProductID=p.ProductID,
+            //                  ProductName = p.ProductName,
+            //                  Description = p.Description,
+            //                  ImageUrl = p.ImageUrl,
+            //                  Price = p.Price,
+            //                  ProductStatus = p.ProductStatus,
+            //                  CategoryName = c.CategoryName
+            //              }).ToList();
+           var values= context.Products.Include(x => x.Category).ToList();
+            return values;
+        }
+
+        
     }
 }

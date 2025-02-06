@@ -21,9 +21,15 @@ namespace RestaurantApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult DiscountList()
+        public IActionResult ProductList()
         {
             var value = _mapper.Map<List<ResultProductDto>>(_productService.TGetListAll());
+            return Ok(value);
+        }
+        [HttpGet("ProductWithCategory")]
+        public IActionResult PorductWithCategory() 
+        {
+            var value = _mapper.Map<List<ResultProductWithCategory>>(_productService.TGetProductWithCategories());
             return Ok(value);
         }
         [HttpPost]

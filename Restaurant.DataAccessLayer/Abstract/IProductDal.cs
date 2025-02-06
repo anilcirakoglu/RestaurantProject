@@ -1,4 +1,5 @@
-﻿using Restaurant.EntityLayer.Entities;
+﻿
+using Restaurant.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Restaurant.DataAccessLayer.Abstract
 {
     public interface IProductDal:IGenericDal<Product>
     {
+        List<Product> GetProductWithCategories();
     }
 }

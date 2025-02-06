@@ -1,4 +1,6 @@
-﻿using Restaurant.EntityLayer.Entities;
+﻿
+using Restaurant.DtoLayer.ProductDto;
+using Restaurant.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +11,6 @@ namespace Restaurant.BusinessLayer.Abstract
 {
     public interface IProductService:IGenericService<Product>
     {
+        List<ResultProductWithCategory> TGetProductWithCategories();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Restaurant.BusinessLayer.Abstract;
 using Restaurant.DataAccessLayer.Abstract;
+using Restaurant.DtoLayer.ProductDto;
 using Restaurant.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -38,9 +39,26 @@ namespace Restaurant.BusinessLayer.Concrete
             return _productDal.GetListAll();
         }
 
+        public List<ResultProductWithCategory> TGetProductWithCategories()
+        {
+            var products = _productDal.GetProductWithCategories();
+            return products.Select(y => new ResultProductWithCategory
+            {
+                Description = y.Description,
+                ImageUrl = y.ImageUrl,
+                Price = y.Price,
+                ProductID = y.ProductID,
+                ProductName = y.ProductName,
+                ProductStatus = y.ProductStatus,
+                CategoryName = y.Category.CategoryName
+            }).ToList();
+        }
+
         public void TUpdate(Product entity)
         {
             _productDal.Update(entity);
         }
+
+      
     }
 }
