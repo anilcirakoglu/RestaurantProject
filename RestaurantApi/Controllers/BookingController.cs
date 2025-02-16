@@ -34,7 +34,7 @@ namespace RestaurantApi.Controllers
             _bookingService.TAdd(value);
             return Ok("Reservasyon yapıldı");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteBooking(int id)
         {
             var value = _bookingService.TGetByID(id);
@@ -48,7 +48,7 @@ namespace RestaurantApi.Controllers
             _bookingService.TUpdate(value);
             return Ok("Rezervasyon Güncellendi");
         }
-        [HttpGet("GetBooking")]
+        [HttpGet("{id}")]
         public IActionResult GetBooking(int id) 
         {
             var value =_bookingService.TGetByID(id);
