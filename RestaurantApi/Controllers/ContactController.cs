@@ -32,7 +32,7 @@ namespace RestaurantApi.Controllers
             _contactService.TAdd(value);
             return Ok("İletişim Bilgisi Eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteContact(int id) 
         {
             var value = _contactService.TGetByID(id);
@@ -47,7 +47,7 @@ namespace RestaurantApi.Controllers
             _contactService.TUpdate(value);
             return Ok("İletişim Bilgisi Güncellendi");
         }
-        [HttpGet("GetContact")]
+        [HttpGet("{id}")]
         public IActionResult GetContact(int id)
         {
             var value = _contactService.TGetByID(id);
