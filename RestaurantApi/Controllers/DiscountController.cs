@@ -34,7 +34,7 @@ namespace RestaurantApi.Controllers
             _discountService.TAdd(value);
             return Ok("İndirim Bilgisi Eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteDiscount(int id)
         {
             var value = _discountService.TGetByID(id);
@@ -49,7 +49,7 @@ namespace RestaurantApi.Controllers
             _discountService.TUpdate(value);
             return Ok("İndirim Bilgisi Güncellendi");
         }
-        [HttpGet("GetDiscount")]
+        [HttpGet("{id}")]
         public IActionResult GetDiscount(int id)
         {
             var value = _discountService.TGetByID(id);
