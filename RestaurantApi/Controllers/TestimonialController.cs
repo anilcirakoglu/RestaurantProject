@@ -33,7 +33,7 @@ namespace RestaurantApi.Controllers
             _testimonialService.TAdd(value);
             return Ok("Müşteri Yorum Bilgisi Eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteTestimonial(int id)
         {
             var value = _testimonialService.TGetByID(id);
@@ -48,7 +48,7 @@ namespace RestaurantApi.Controllers
             _testimonialService.TUpdate(value);
             return Ok("Müşteri Yorum Bilgisi Güncellendi");
         }
-        [HttpGet("GetTestimonial")]
+        [HttpGet("{id}")]
         public IActionResult GetTestimonial(int id)
         {
             var value = _testimonialService.TGetByID(id);

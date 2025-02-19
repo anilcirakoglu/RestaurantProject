@@ -34,7 +34,7 @@ namespace RestaurantApi.Controllers
             _socialMediaService.TAdd(value);
             return Ok("Sosyal Medya Bilgisi Eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteSocialMedia(int id)
         {
             var value = _socialMediaService.TGetByID(id);
@@ -49,7 +49,7 @@ namespace RestaurantApi.Controllers
             _socialMediaService.TUpdate(value);
             return Ok("Sosyal Medya Bilgisi Güncellendi");
         }
-        [HttpGet("GetSocialMedia")]
+        [HttpGet("{id}")]
         public IActionResult GetSocialMedia(int id)
         {
             var value = _socialMediaService.TGetByID(id);
