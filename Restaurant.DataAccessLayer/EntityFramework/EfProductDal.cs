@@ -54,5 +54,24 @@ namespace Restaurant.DataAccessLayer.EntityFramework
             using var context = new RestaurantContext();
             return context.Products.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "Hamburgerr").Select(z => z.CategoryID).FirstOrDefault())).Count();
         }
+
+        public string ProductNamePriceByMaximum()
+        {
+            using var context = new RestaurantContext();
+            return context.Products.Where(x => x.Price == (context.Products.Max(y => y.Price))).Select(z => z.ProductName).FirstOrDefault(); 
+
+        }
+
+        public string ProductNamePriceByMinimum()
+        {
+            using var context = new RestaurantContext();
+            return context.Products.Where(x => x.Price == (context.Products.Min(y => y.Price))).Select(z => z.ProductName).FirstOrDefault();
+        }
+
+        public decimal ProductPriceAvg()
+        {
+            using var context = new RestaurantContext();
+            return context.Products.Average(x=>x.Price);
+        }
     }
 }

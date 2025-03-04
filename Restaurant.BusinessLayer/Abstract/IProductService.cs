@@ -16,5 +16,8 @@ namespace Restaurant.BusinessLayer.Abstract
 
         public int TProductCountByCategoryNameHamburger();
         public int TProductCountByCategoryNameDrink();
+        public decimal TProductPriceAvg();
+        string TProductNamePriceByMaximum();
+        string TProductNamePriceByMinimum();
     }
 }

@@ -69,6 +69,21 @@ namespace Restaurant.BusinessLayer.Concrete
             return _productDal.ProductCountByCategoryNameHamburger();   
         }
 
+        public string TProductNamePriceByMaximum()
+        {
+            return _productDal.ProductNamePriceByMaximum();
+        }
+
+        public string TProductNamePriceByMinimum()
+        {
+            return _productDal.ProductNamePriceByMinimum();
+        }
+
+        public decimal TProductPriceAvg()
+        {
+            return _productDal.ProductPriceAvg();
+        }
+
         public void TUpdate(Product entity)
         {
             _productDal.Update(entity);

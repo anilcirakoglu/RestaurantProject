@@ -14,5 +14,8 @@ namespace Restaurant.DataAccessLayer.Abstract
         public int ProductCount();
         public int ProductCountByCategoryNameHamburger();
         public int ProductCountByCategoryNameDrink();
+        public decimal ProductPriceAvg();
+        string ProductNamePriceByMaximum();
+        string ProductNamePriceByMinimum();
     }
 }

@@ -26,6 +26,11 @@ namespace RestaurantApi.Controllers
             var value = _mapper.Map<List<ResultProductDto>>(_productService.TGetListAll());
             return Ok(value);
         }
+        [HttpGet("ProductPriceAvg")]
+        public IActionResult ProductPriceAvg()
+        {
+            return Ok(_productService.TProductPriceAvg());
+        }
         [HttpGet("ProductCount")]
         public IActionResult ProductCount() 
         {
@@ -42,6 +47,17 @@ namespace RestaurantApi.Controllers
         public IActionResult ProductCountByDrink()
         {
             return Ok(_productService.TProductCountByCategoryNameDrink());
+        }
+
+        [HttpGet("ProductNameByMaxPrice")]
+        public IActionResult ProductNameByMaxPrice()
+        {
+            return Ok(_productService.TProductNamePriceByMaximum());
+        }
+        [HttpGet("ProductNameByMinPrice")]
+        public IActionResult ProductNameByMinPrice()
+        {
+            return Ok(_productService.TProductNamePriceByMinimum());
         }
 
 
