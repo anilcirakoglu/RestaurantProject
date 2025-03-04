@@ -73,5 +73,11 @@ namespace Restaurant.DataAccessLayer.EntityFramework
             using var context = new RestaurantContext();
             return context.Products.Average(x=>x.Price);
         }
+
+        public decimal ProductAvgPriceByHamburger()
+        {
+            using var context = new RestaurantContext();
+            return context.Products.Where(x => x.CategoryID ==(context.Categories.Where(y=>y.CategoryName=="Hamburgerr").Select(z=>z.CategoryID).FirstOrDefault())).Average(w=>w.Price);
+        }
     }
 }

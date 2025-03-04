@@ -19,5 +19,6 @@ namespace Restaurant.BusinessLayer.Abstract
         public decimal TProductPriceAvg();
         string TProductNamePriceByMaximum();
         string TProductNamePriceByMinimum();
+        decimal TProductAvgPriceByHamburger();
     }
 }

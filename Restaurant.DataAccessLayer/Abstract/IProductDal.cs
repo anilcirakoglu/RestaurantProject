@@ -17,5 +17,6 @@ namespace Restaurant.DataAccessLayer.Abstract
         public decimal ProductPriceAvg();
         string ProductNamePriceByMaximum();
         string ProductNamePriceByMinimum();
+        decimal ProductAvgPriceByHamburger();
     }
 }

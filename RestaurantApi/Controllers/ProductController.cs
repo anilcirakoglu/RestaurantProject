@@ -26,11 +26,18 @@ namespace RestaurantApi.Controllers
             var value = _mapper.Map<List<ResultProductDto>>(_productService.TGetListAll());
             return Ok(value);
         }
+        [HttpGet("ProductAvgPriceByHamburger")]
+        public IActionResult ProductAvgPriceByHamburger()
+        {
+            return Ok(_productService.TProductAvgPriceByHamburger());
+        }
+
         [HttpGet("ProductPriceAvg")]
         public IActionResult ProductPriceAvg()
         {
             return Ok(_productService.TProductPriceAvg());
         }
+        
         [HttpGet("ProductCount")]
         public IActionResult ProductCount() 
         {
