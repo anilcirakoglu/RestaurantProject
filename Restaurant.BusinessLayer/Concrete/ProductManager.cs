@@ -54,6 +54,21 @@ namespace Restaurant.BusinessLayer.Concrete
             }).ToList();
         }
 
+        public int TProductCount()
+        {
+          return  _productDal.ProductCount();
+        }
+
+        public int TProductCountByCategoryNameDrink()
+        {
+            return _productDal.ProductCountByCategoryNameDrink();   
+        }
+
+        public int TProductCountByCategoryNameHamburger()
+        {
+            return _productDal.ProductCountByCategoryNameHamburger();   
+        }
+
         public void TUpdate(Product entity)
         {
             _productDal.Update(entity);

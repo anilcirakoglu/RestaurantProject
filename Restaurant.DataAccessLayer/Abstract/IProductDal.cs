@@ -11,5 +11,8 @@ namespace Restaurant.DataAccessLayer.Abstract
     public interface IProductDal:IGenericDal<Product>
     {
         List<Product> GetProductWithCategories();
+        public int ProductCount();
+        public int ProductCountByCategoryNameHamburger();
+        public int ProductCountByCategoryNameDrink();
     }
 }

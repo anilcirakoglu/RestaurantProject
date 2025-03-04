@@ -33,10 +33,26 @@ namespace Restaurant.DataAccessLayer.EntityFramework
             //                  ProductStatus = p.ProductStatus,
             //                  CategoryName = c.CategoryName
             //              }).ToList();
-           var values= context.Products.Include(x => x.Category).ToList();
+            var values = context.Products.Include(x => x.Category).ToList();
             return values;
         }
 
-        
+        public int ProductCount()
+        {
+            using var context = new RestaurantContext();
+            return context.Products.Count();
+        }
+
+        public int ProductCountByCategoryNameDrink()
+        {
+            using var context = new RestaurantContext();
+            return context.Products.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "İçecek").Select(z => z.CategoryID).FirstOrDefault())).Count();
+        }
+
+        public int ProductCountByCategoryNameHamburger()
+        {
+            using var context = new RestaurantContext();
+            return context.Products.Where(x => x.CategoryID == (context.Categories.Where(y => y.CategoryName == "Hamburgerr").Select(z => z.CategoryID).FirstOrDefault())).Count();
+        }
     }
 }

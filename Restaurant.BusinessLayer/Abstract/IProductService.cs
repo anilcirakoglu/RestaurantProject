@@ -12,5 +12,9 @@ namespace Restaurant.BusinessLayer.Abstract
     public interface IProductService:IGenericService<Product>
     {
         List<ResultProductWithCategory> TGetProductWithCategories();
+        public int TProductCount();
+
+        public int TProductCountByCategoryNameHamburger();
+        public int TProductCountByCategoryNameDrink();
     }
 }

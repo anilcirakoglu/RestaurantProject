@@ -26,6 +26,22 @@ namespace RestaurantApi.Controllers
             var value = _mapper.Map<List<ResultCategoryDto>>(_categoryService.TGetListAll());
             return Ok(value);
         }
+        [HttpGet("CategoryCount")]
+        public ActionResult CategoryCount() 
+        {
+            return Ok(_categoryService.TCategoryCount());
+        }
+        [HttpGet("ActiveCategoryCount")]
+        public ActionResult ActiveCategoryCount()
+        {
+            return Ok(_categoryService.TActiveCategoryCount());
+        }
+        [HttpGet("PassiveCategoryCount")]
+        public ActionResult PassiveCategoryCount()
+        {
+            return Ok(_categoryService.TPassiveCategoryCount());
+        }
+
         [HttpPost]
         public IActionResult CreateCategory(CreateCategoryDto CreateCategoryDto)
         {
