@@ -47,6 +47,12 @@ namespace Restaurant.BusinessLayer.Container
 
             services.AddScoped<IOrderDetailService, OrderDetailManager>();
             services.AddScoped<IOrderDetailDal, EfOrderDetailDal>();
+
+            services.AddScoped<IMoneyCaseService, MoneyCaseManager>();
+            services.AddScoped<IMoneyCaseDal, EfMoneyCaseDal>();
+
+            services.AddScoped<IMenuTableService, MenuTableManager>();
+            services.AddScoped<IMenuTableDal, EfMenuTableDal>();
         }
     }
     }

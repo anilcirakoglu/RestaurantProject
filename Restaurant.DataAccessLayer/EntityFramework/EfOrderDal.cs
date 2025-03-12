@@ -28,6 +28,12 @@ namespace Restaurant.DataAccessLayer.EntityFramework
             return context.Orders.OrderByDescending(x => x.OrderID).Take(1).Select(y => y.TotalPrice).FirstOrDefault();
         }
 
+        public decimal TodayTotalPrice()
+        {
+            using var context = new RestaurantContext();
+            return context.Orders.Where(x => x.Date == DateTime.Parse(DateTime.Now.ToShortDateString())).Sum(y=>y.TotalPrice);/*hata var*/
+        }
+
         public int TotalOrderCount()
         {
             using var context = new RestaurantContext();
